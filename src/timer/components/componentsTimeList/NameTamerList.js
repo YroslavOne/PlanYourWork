@@ -10,7 +10,7 @@ function NameTimerList(props) {
 function openSettingsTimer(idElem){
   setScreensTimer(SCREENS_TIMER.SETTINGS_TIMER)
     timerList.map((objTimerList)=>{
-        if(objTimerList.id===idElem){
+        if(objTimerList.id===Number(idElem)){
           setSettingsTimer(objTimerList)
         }
     })
