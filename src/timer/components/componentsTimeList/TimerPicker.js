@@ -1,34 +1,67 @@
-import React, { useState } from 'react';
-import './timePicker.css'; // Убедитесь, что вы создали этот CSS файл и добавили в него стили
+import React, { useState, useEffect } from 'react';
+import './timePicker.css'; // Стилизация через отдельный CSS файл
 
-const TimePicker = () => {
-  const [selectedTime, setSelectedTime] = useState('12:00');
+const TimerPicker = () => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const options = Array.from({ length: 60 }, (_, index) => ({
+    value: index + 1,
+    label: index + 1,
+  }));
 
-  const minutes = Array.from({ length: 60 }, (_, i) =>
-    i.toString().padStart(2, '0')
-  ).filter((_, i) => i % 1 === 0); // Пример с интервалом в 5 минут
-
-  const handleTimeChange = (hour, minute) => {
-    setSelectedTime(`${hour}:${minute}`);
+  // Обработчик скролла для select элемента
+  const handleScroll = (event) => {
+    const index = Math.round(
+      event.target.scrollTop / (event.target.offsetHeight / 5)
+    );
+    setSelectedIndex(index);
   };
 
+  useEffect(() => {
+    const selectElement = document.querySelector('.custom-select select');
+    selectElement.scrollTop = selectedIndex * (selectElement.offsetHeight / 5);
+  }, [selectedIndex]);
+
   return (
-    <div className="time-picker">
-      <div className="time-picker-column">
-        {minutes.map((minute) => (
-          <div
-            key={minute}
-            className={`time-picker-item ${
-              selectedTime.endsWith(minute) ? 'selected' : ''
-            }`}
-            onClick={() => handleTimeChange(selectedTime.slice(0, 2), minute)}
+    <div className="custom-select">
+      <select
+        size="5"
+        onScroll={handleScroll}
+        value={options[selectedIndex].value}
+        onChange={(e) =>
+          setSelectedIndex(
+            options.findIndex((opt) => opt.value.toString() === e.target.value)
+          )
+        }
+      >
+        {options.map((option, index) => (
+          <option
+            key={option.value}
+            value={option.value}
+            style={getOptionStyle(index, selectedIndex)}
           >
-            {minute}
-          </div>
+            {option.label}
+          </option>
         ))}
-      </div>
+      </select>
     </div>
   );
 };
 
-export default TimePicker;
+// Вспомогательная функция для стилизации опций
+const getOptionStyle = (index, selectedIndex) => {
+  const distance = Math.abs(selectedIndex - index);
+  switch (distance) {
+    case 0:
+      return { fontSize: '30px' };
+    case 1:
+    case 3:
+      return { fontSize: '20px' };
+    case 2:
+    case 4:
+      return { fontSize: '10px' };
+    default:
+      return {}; // для опций вне видимой области
+  }
+};
+
+export default TimerPicker;

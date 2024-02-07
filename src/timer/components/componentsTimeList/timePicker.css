@@ -1,48 +1,24 @@
-.time-picker {
-	display: flex;
-	flex-direction: row;
-	background-color: #2c2c54;
-	/* Темный фон, аналогичный изображению */
-	padding: 10px;
-	border-radius: 10px;
-	user-select: none;
+.custom-select select {
+	width: 100%;
+	/* Занимать всю доступную ширину */
+	/* overflow: hidden; */
+	/* Скрыть лишние опции */
+	border: 1px solid #ccc;
+	/* Граница для select */
+	font-size: 17px;
+	/* Минимальный размер шрифта */
+	height: 130px;
+	/* Высота, достаточная для отображения 5 опций */
 }
 
-.time-picker-column {
-	height: 50px;
-	display: flex;
-	flex-direction: column;
-	overflow-y: auto;
-	margin: 0 5px;
+/* Скрываем полосу прокрутки */
+.custom-select select::-webkit-scrollbar {
+	display: none;
 }
 
-.time-picker-item {
-	padding: 10px;
-	color: white;
-	cursor: pointer;
+.custom-select option {
+	padding: 5px 10px;
+	/* Отступы для опций */
 	text-align: center;
-}
-
-.time-picker-item.selected {
-	background-color: #706fd3;
-	/* Фиолетовый цвет для выделения */
-	color: white;
-	border-radius: 5px;
-}
-
-/* Стили для прокрутки */
-.time-picker-column::-webkit-scrollbar {
-	width: 5px;
-}
-
-.time-picker-column::-webkit-scrollbar-thumb {
-	background: #40407a;
-	/* Стиль ползунка прокрутки */
-	border-radius: 5px;
-}
-
-.time-picker-column::-webkit-scrollbar-track {
-	background: #2c2c54;
-	/* Стиль дорожки прокрутки */
-	border-radius: 5px;
+	/* Центрирование текста */
 }
