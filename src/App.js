@@ -1,9 +1,13 @@
-import './App.css';
+import "./App.css";
+import { ContextProvider } from "./Context";
+import TabTimer from "./timer/TabTimer";
 
 function App() {
   return (
-    <div className="App">
-      <p>hi</p>
+    <div>
+    <ContextProvider>
+      <TabTimer />
+    </ContextProvider>
     </div>
   );
 }
