@@ -1,0 +1,48 @@
+.time-picker {
+	display: flex;
+	flex-direction: row;
+	background-color: #2c2c54;
+	/* Темный фон, аналогичный изображению */
+	padding: 10px;
+	border-radius: 10px;
+	user-select: none;
+}
+
+.time-picker-column {
+	height: 50px;
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+	margin: 0 5px;
+}
+
+.time-picker-item {
+	padding: 10px;
+	color: white;
+	cursor: pointer;
+	text-align: center;
+}
+
+.time-picker-item.selected {
+	background-color: #706fd3;
+	/* Фиолетовый цвет для выделения */
+	color: white;
+	border-radius: 5px;
+}
+
+/* Стили для прокрутки */
+.time-picker-column::-webkit-scrollbar {
+	width: 5px;
+}
+
+.time-picker-column::-webkit-scrollbar-thumb {
+	background: #40407a;
+	/* Стиль ползунка прокрутки */
+	border-radius: 5px;
+}
+
+.time-picker-column::-webkit-scrollbar-track {
+	background: #2c2c54;
+	/* Стиль дорожки прокрутки */
+	border-radius: 5px;
+}
