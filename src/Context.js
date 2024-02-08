@@ -15,7 +15,7 @@ export const ContextProvider = ({ children }) => {
   let arrayTimerList = [
     {
       name: "timer1",
-      focuseTime: 20,
+      focuseTime: 60,
       shortBreak: 5,
       longBreak: 15,
       sections: 4,

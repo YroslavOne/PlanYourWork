@@ -1,24 +1,16 @@
-.custom-select select {
-	width: 100%;
-	/* Занимать всю доступную ширину */
-	/* overflow: hidden; */
-	/* Скрыть лишние опции */
-	border: 1px solid #ccc;
-	/* Граница для select */
-	font-size: 17px;
-	/* Минимальный размер шрифта */
-	height: 130px;
-	/* Высота, достаточная для отображения 5 опций */
-}
-
-/* Скрываем полосу прокрутки */
-.custom-select select::-webkit-scrollbar {
-	display: none;
-}
-
-.custom-select option {
-	padding: 5px 10px;
-	/* Отступы для опций */
+.time-picker {
+	height: 200px; /* Высота видимой области */
+	overflow-y: scroll;
+	position: relative;
+  }
+  
+  .time-item {
+	padding: 10px;
 	text-align: center;
-	/* Центрирование текста */
-}
+  }
+  
+  .time-item.selected {
+	font-weight: bold;
+	color: #fff;
+	background-color: #6200EE; /* Используйте цвет из вашего дизайна */
+  }
