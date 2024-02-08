@@ -2,19 +2,19 @@ import { useState, useContext } from "react";
 import TimePicker from "./TimerPicker"
 import { Context } from "../../../../Context";
 
-function ElementSettengsTimerList(focuseTime){
+function ElementSettengsTimerList(props){
 
 const [onDisplayTimePicker, setOnDisplayTimePicker]=useState(false)
-    function clickDisplay() {
+    function clickDisplay( ) {
         setOnDisplayTimePicker(!onDisplayTimePicker)
       }
 
     return(
         <li onClick={(e) => clickDisplay()}>
-        <p>Focuse time</p>
+        <p>{props.name}</p>
         {true === onDisplayTimePicker && (
           <TimePicker
-            initialValue={focuseTime}
+            initialValue={props.value}
             startSelections={1}
             endSelections={99}
           />
