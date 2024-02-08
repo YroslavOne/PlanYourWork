@@ -1,7 +1,7 @@
 import { SCREENS_TIMER, SCREENS_SETTINGS } from "../../../Consist";
 import { Context } from "../../../Context";
 import { useContext, useEffect, useRef, useState } from "react";
-import TimePicker from "./TimerPicker";
+import TimePicker from "./settingsTimerList/TimerPicker";
 
 function SettingsTimer() {
   const { settingsTimer, setScreensTimer, setSettingsTimer } =

@@ -8,7 +8,6 @@ function TimerPicker(props) {
 
   for (let i = props.startSelections; i <= props.endSelections; i++) {
     selections.value.push(i);
-    console.log(i);
   }
 
   const [pickerValue, setPickerValue] = useState({
