@@ -1,93 +1,81 @@
-import { SCREENS_TIMER, SCREENS_SETTINGS } from "../../../Consist";
-import { Context } from "../../../Context";
-import { useContext, useEffect, useRef, useState } from "react";
-// import TimePicker from "./settingsTimerList/TimerPicker";
-import ElementSettengsTimerList from "./settingsTimerList/elementSettingsTimerList";
+import { SCREENS_TIMER, SCREENS_SETTINGS } from '../../../Consist';
+import { Context } from '../../../Context';
+import { useContext, useEffect, useRef, useState } from 'react';
+import ElementSettingsTimerList from './settingsTimerList/ElementSettingsTimerList';
+import UpdateSettingsInTimerList from './settingsTimerList/UpdateSettingsInTimerList';
+import Editor from './settingsTimerList/EditorName';
 
 function SettingsTimer() {
-  const { settingsTimer, setScreensTimer, setSettingsTimer } =
-    useContext(Context);
-//   const [screenForTuning, setScreenForTuning] = useState(SCREENS_SETTINGS.NONE);
+  const {
+    settingsTimer,
+    setScreensTimer,
+    setSettingsTimer,
+    timerList,
+    setTimerList,
+  } = useContext(Context);
+  let settingsTimerList = structuredClone(settingsTimer);
+
+  const [valueName, setValueName] = useState(settingsTimer.name);
+  const [valueFocusTime, setValueFocusTime] = useState(
+    settingsTimer.focuseTime
+  );
+  const [valueShortBreak, setValueShortBreak] = useState(
+    settingsTimer.shortBreak
+  );
+  const [valueLongBreak, setValueLongBreak] = useState(settingsTimer.longBreak);
+  const [valueSections, setValueSections] = useState(settingsTimer.sections);
+
+  settingsTimerList.name = valueName;
+  settingsTimerList.focuseTime = valueFocusTime;
+  settingsTimerList.shortBreak = valueShortBreak;
+  settingsTimerList.longBreak = valueLongBreak;
+  settingsTimerList.sections = valueSections;
 
   function cancelButton() {
     setScreensTimer(SCREENS_TIMER.TIMER_LIST);
   }
   function saveButton() {
     setScreensTimer(SCREENS_TIMER.TIMER_LIST);
+    UpdateSettingsInTimerList(timerList, settingsTimerList, setTimerList);
   }
-//   function clickFocuseTime() {
-//     if (screenForTuning === SCREENS_SETTINGS.FOCUSE_TIME) {
-//       setScreenForTuning(SCREENS_SETTINGS.NONE);
-//     } else {
-//       setScreenForTuning(SCREENS_SETTINGS.FOCUSE_TIME);
-//     }
-//   }
-//   function clickShortBreak() {
-//     if (screenForTuning === SCREENS_SETTINGS.SHORT_BREAK) {
-//       setScreenForTuning(SCREENS_SETTINGS.NONE);
-//     } else {
-//       setScreenForTuning(SCREENS_SETTINGS.SHORT_BREAK);
-//     }
-//   }
-//   function clickLongBreak() {
-//     if (screenForTuning === SCREENS_SETTINGS.LONG_BREAK) {
-//       setScreenForTuning(SCREENS_SETTINGS.NONE);
-//     } else {
-//       setScreenForTuning(SCREENS_SETTINGS.LONG_BREAK);
-//     }
-//   }
-//   function clickSections() {
-//     if (screenForTuning === SCREENS_SETTINGS.SECTIONS) {
-//       setScreenForTuning(SCREENS_SETTINGS.NONE);
-//     } else {
-//       setScreenForTuning(SCREENS_SETTINGS.SECTIONS);
-//     }
-//   }
 
   return (
     <div>
+      <Editor valueName={valueName} setValueName={setValueName} />
+
       <ul>
-        <ElementSettengsTimerList name={"Focuse time"} value={settingsTimer.focuseTime}/>
-        {/* <li onClick={(e) => clickFocuseTime()}>
-          <p>Focuse time</p>
-          {SCREENS_SETTINGS.FOCUSE_TIME === screenForTuning && (
-            <TimePicker
-              initialValue={settingsTimer.focuseTime}
-              startSelections={1}
-              endSelections={99}
-            />
-          )}
-        </li>
-        <li onClick={(e) => clickShortBreak()}>
-          <p>Short break</p>
-          {SCREENS_SETTINGS.SHORT_BREAK === screenForTuning && (
-            <TimePicker
-              initialValue={settingsTimer.shortBreak}
-              startSelections={1}
-              endSelections={99}
-            />
-          )}
-        </li>
-        <li onClick={(e) => clickLongBreak()}>
-          <p>Long break</p>
-          {SCREENS_SETTINGS.LONG_BREAK === screenForTuning && (
-            <TimePicker
-              initialValue={settingsTimer.longBreak}
-              startSelections={1}
-              endSelections={99}
-            />
-          )}
-        </li>
-        <li onClick={(e) => clickSections()}>
-          <p>Sections</p>
-          {SCREENS_SETTINGS.SECTIONS === screenForTuning && (
-            <TimePicker
-              initialValue={settingsTimer.sections}
-              startSelections={1}
-              endSelections={10}
-            />
-          )}
-        </li> */}
+        <ElementSettingsTimerList
+          name={'Focuse time'}
+          unit={'min'}
+          value={valueFocusTime}
+          setValue={setValueFocusTime}
+          startSelections={1}
+          endSelections={60}
+        />
+        <ElementSettingsTimerList
+          name={'Short break'}
+          unit={'min'}
+          value={valueShortBreak}
+          setValue={setValueShortBreak}
+          startSelections={1}
+          endSelections={60}
+        />
+        <ElementSettingsTimerList
+          name={'Long break'}
+          unit={'min'}
+          value={valueLongBreak}
+          setValue={setValueLongBreak}
+          startSelections={1}
+          endSelections={60}
+        />
+        <ElementSettingsTimerList
+          name={'Sections'}
+          unit={'intervals'}
+          value={valueSections}
+          setValue={setValueSections}
+          startSelections={1}
+          endSelections={10}
+        />
       </ul>
 
       <button onClick={(e) => cancelButton()}>cancel</button>

@@ -1,25 +1,36 @@
-import { useState, useContext } from "react";
-import TimePicker from "./TimerPicker"
-import { Context } from "../../../../Context";
+import { useState, useContext } from 'react';
+import TimePicker from './TimerPicker';
+import { Context } from '../../../../Context';
+import { CaretUp } from 'react-bootstrap-icons';
+import { CaretDown } from 'react-bootstrap-icons';
 
-function ElementSettengsTimerList(props){
+function ElementSettingsTimerList(props) {
+  const [onDisplayTimePicker, setOnDisplayTimePicker] = useState(false);
+  const [valueSettings, setValueSettings] = useState(props.value);
+  props.setValue(valueSettings);
+  function clickDisplay() {
+    setOnDisplayTimePicker(!onDisplayTimePicker);
+  }
 
-const [onDisplayTimePicker, setOnDisplayTimePicker]=useState(false)
-    function clickDisplay( ) {
-        setOnDisplayTimePicker(!onDisplayTimePicker)
-      }
+  return (
+    <li>
+      <div onClick={(e) => clickDisplay()}>
+        <h4 className="title-settings-function">{props.name}</h4>
+        <p>
+          {valueSettings} {props.unit}
+        </p>
+        <a>{onDisplayTimePicker === false ? <CaretUp /> : <CaretDown />}</a>
+      </div>
 
-    return(
-        <li onClick={(e) => clickDisplay()}>
-        <p>{props.name}</p>
-        {true === onDisplayTimePicker && (
-          <TimePicker
-            initialValue={props.value}
-            startSelections={1}
-            endSelections={99}
-          />
-        )}
-      </li>
-    )
+      {true === onDisplayTimePicker && (
+        <TimePicker
+          initialValue={valueSettings}
+          setValueSettings={setValueSettings}
+          startSelections={props.startSelections}
+          endSelections={props.endSelections}
+        />
+      )}
+    </li>
+  );
 }
-export default ElementSettengsTimerList
+export default ElementSettingsTimerList;

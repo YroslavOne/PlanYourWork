@@ -1,5 +1,5 @@
-import { useState } from "react";
-import Picker from "react-mobile-picker";
+import { useState } from 'react';
+import Picker from 'react-mobile-picker';
 
 function TimerPicker(props) {
   let selections = {
@@ -13,6 +13,7 @@ function TimerPicker(props) {
   const [pickerValue, setPickerValue] = useState({
     value: props.initialValue,
   });
+  props.setValueSettings(pickerValue.value);
 
   return (
     <Picker value={pickerValue} onChange={setPickerValue}>

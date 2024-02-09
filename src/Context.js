@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
-import { SCREENS, SCREENS_TIMER } from "./Consist";
+import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { SCREENS, SCREENS_TIMER } from './Consist';
 
 export const Context = React.createContext({
   timerList: null,
@@ -12,26 +12,7 @@ export const Context = React.createContext({
 });
 
 export const ContextProvider = ({ children }) => {
-  let arrayTimerList = [
-    {
-      name: "timer1",
-      focuseTime: 60,
-      shortBreak: 5,
-      longBreak: 15,
-      sections: 4,
-      id: 1,
-      key: uuidv4(),
-    },
-    {
-      name: "timer2",
-      focuseTime: 20,
-      shortBreak: 5,
-      longBreak: 15,
-      sections: 4,
-      id: 2,
-      key: uuidv4(),
-    },
-  ];
+  let arrayTimerList = [];
 
   if (localStorage?.TimerList) {
   } else {
@@ -39,10 +20,22 @@ export const ContextProvider = ({ children }) => {
   }
   let timersList = JSON.parse(localStorage.TimerList);
 
-  const [timerList, setTimerList] = useState(arrayTimerList);
+  const [timerList, setTimerList] = useState(timersList);
   const [settingsTimer, setSettingsTimer] = useState(arrayTimerList);
   const [screensTimer, setScreensTimer] = useState(SCREENS_TIMER.TIMER_LIST);
 
+  let thisIdForAdd = maxIdTimerList(timerList);
+  function maxIdTimerList(timerList) {
+    let id = 0;
+    if (timerList !== undefined) {
+      timerList.map((objTimerList) => {
+        if (id < objTimerList.id) {
+          id = objTimerList.id;
+        }
+      });
+    }
+    return id;
+  }
   localStorage.TimerList = JSON.stringify(timerList);
 
   return (
@@ -54,6 +47,7 @@ export const ContextProvider = ({ children }) => {
         setSettingsTimer,
         screensTimer,
         setScreensTimer,
+        thisIdForAdd,
       }}
     >
       {children}

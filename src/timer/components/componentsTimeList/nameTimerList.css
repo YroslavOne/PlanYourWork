@@ -1,0 +1,10 @@
+.name-tamer-list {
+	list-style-type: none;
+	display: flex;
+
+}
+
+.name-tamer-list-button {
+	font-size: 5px;
+	color: black;
+}
