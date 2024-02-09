@@ -1,14 +1,15 @@
 import { SCREENS_TIMER, SCREENS_SETTINGS } from '../../../Consist';
 import { Context } from '../../../Context';
 import { useContext, useEffect, useRef, useState } from 'react';
-import ElementSettingsTimerList from './settingsTimerList/ElementSettingsTimerList';
+// import ElementSettingsTimerList from './settingsTimerList/ElementSettingsTimerList';
 import SettingsTimerElem from './settingsTimerList/SettingsTimerElem';
 import { v4 as uuidv4 } from 'uuid';
 
-// import Editor from './settingsTimerList/EditorName';
+import Editor from './settingsTimerList/EditorName';
 
 function SettingsTimer() {
-  const { settingsTimer, setSettingsTimer } = useContext(Context);
+  const { settingsTimer, setSettingsTimer, nameTimer, setnameTimer } =
+    useContext(Context);
   let settingsTimerList = structuredClone(settingsTimer);
 
   function cancelButton() {
@@ -17,10 +18,9 @@ function SettingsTimer() {
       objSettingsTimer.key = uuidv4();
       newArray.push(objSettingsTimer);
     });
-    // let newArray = structuredClone(settingsTimer);
     setSettingsTimer(newArray);
-    console.log(settingsTimer);
   }
+
   function saveButton() {
     let newArray = [];
     settingsTimerList.map((objSettingsTimer) => {
@@ -28,13 +28,11 @@ function SettingsTimer() {
       newArray.push(objSettingsTimer);
     });
     setSettingsTimer(newArray);
-    setSettingsTimer(settingsTimerList);
   }
-  console.log(settingsTimerList);
 
   return (
     <div>
-      {/* <Editor valueName={valueName} setValueName={setValueName} /> */}
+      <Editor valueName={nameTimer} setValueName={setnameTimer} />
 
       <SettingsTimerElem
         settingsTimer={settingsTimer}
