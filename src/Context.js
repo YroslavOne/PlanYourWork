@@ -3,51 +3,73 @@ import { v4 as uuidv4 } from 'uuid';
 import { SCREENS, SCREENS_TIMER } from './Consist';
 
 export const Context = React.createContext({
-  timerList: null,
-  setTimerList: () => {},
   settingsTimer: null,
   setSettingsTimer: () => {},
   screensTimer: null,
   setScreensTimer: () => {},
+  forSaveSettingsTimer: null,
+  setForSaveSettingsTimer: () => {},
 });
 
 export const ContextProvider = ({ children }) => {
-  let arrayTimerList = [];
+  let settingTimer = [
+    {
+      name: 'Focuse time',
+      unit: 'min',
+      value: 25,
+      startSelection: 1,
+      endSelection: 60,
+      key: uuidv4(),
+    },
+    {
+      name: 'Short break',
+      unit: 'min',
+      value: 5,
+      startSelection: 1,
+      endSelection: 60,
+      key: uuidv4(),
+    },
+    {
+      name: 'Long break',
+      unit: 'min',
+      value: 15,
+      startSelection: 1,
+      endSelection: 60,
+      key: uuidv4(),
+    },
+    {
+      name: 'Sections',
+      unit: 'intervals',
+      value: 4,
+      startSelection: 1,
+      endSelection: 60,
+      key: uuidv4(),
+    },
+  ];
 
-  if (localStorage?.TimerList) {
+  if (localStorage?.SettingTimer) {
   } else {
-    localStorage.TimerList = JSON.stringify(arrayTimerList);
+    localStorage.SettingTimer = JSON.stringify(settingTimer);
   }
-  let timersList = JSON.parse(localStorage.TimerList);
 
-  const [timerList, setTimerList] = useState(timersList);
-  const [settingsTimer, setSettingsTimer] = useState(arrayTimerList);
-  const [screensTimer, setScreensTimer] = useState(SCREENS_TIMER.TIMER_LIST);
-
-  let thisIdForAdd = maxIdTimerList(timerList);
-  function maxIdTimerList(timerList) {
-    let id = 0;
-    if (timerList !== undefined) {
-      timerList.map((objTimerList) => {
-        if (id < objTimerList.id) {
-          id = objTimerList.id;
-        }
-      });
-    }
-    return id;
-  }
-  localStorage.TimerList = JSON.stringify(timerList);
+  const [settingsTimer, setSettingsTimer] = useState(
+    JSON.parse(localStorage.SettingTimer)
+  );
+  const [forSaveSettingsTimer, setForSaveSettingsTimer] = useState(null);
+  const [screensTimer, setScreensTimer] = useState(
+    SCREENS_TIMER.SETTINGS_TIMER
+  );
+  localStorage.SettingTimer = JSON.stringify(settingsTimer);
 
   return (
     <Context.Provider
       value={{
-        timerList,
-        setTimerList,
         settingsTimer,
         setSettingsTimer,
         screensTimer,
         setScreensTimer,
-        thisIdForAdd,
+        forSaveSettingsTimer,
+        setForSaveSettingsTimer,
       }}
     >
       {children}

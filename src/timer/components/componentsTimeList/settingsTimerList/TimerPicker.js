@@ -1,12 +1,16 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Picker from 'react-mobile-picker';
+// import { Context } from '../../../../Context';
 
 function TimerPicker(props) {
+  // const { forSaveSettingsTimer, setForSaveSettingsTimer } = useContext(Context);
+
+  // let settingsList = structuredClone();
   let selections = {
     value: [],
   };
 
-  for (let i = props.startSelections; i <= props.endSelections; i++) {
+  for (let i = props.startSelection; i <= props.endSelection; i++) {
     selections.value.push(i);
   }
 
@@ -14,6 +18,11 @@ function TimerPicker(props) {
     value: props.initialValue,
   });
   props.setValueSettings(pickerValue.value);
+  props.settingsTimerList.map((objSettingsTimerList) => {
+    if (objSettingsTimerList.name === props.name) {
+      objSettingsTimerList.value = pickerValue.value;
+    }
+  });
 
   return (
     <Picker value={pickerValue} onChange={setPickerValue}>

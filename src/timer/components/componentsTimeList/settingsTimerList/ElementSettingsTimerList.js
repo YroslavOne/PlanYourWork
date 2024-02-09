@@ -7,13 +7,12 @@ import { CaretDown } from 'react-bootstrap-icons';
 function ElementSettingsTimerList(props) {
   const [onDisplayTimePicker, setOnDisplayTimePicker] = useState(false);
   const [valueSettings, setValueSettings] = useState(props.value);
-  props.setValue(valueSettings);
   function clickDisplay() {
     setOnDisplayTimePicker(!onDisplayTimePicker);
   }
 
   return (
-    <li>
+    <li key={props.key}>
       <div onClick={(e) => clickDisplay()}>
         <h4 className="title-settings-function">{props.name}</h4>
         <p>
@@ -25,9 +24,11 @@ function ElementSettingsTimerList(props) {
       {true === onDisplayTimePicker && (
         <TimePicker
           initialValue={valueSettings}
+          name={props.name}
           setValueSettings={setValueSettings}
-          startSelections={props.startSelections}
-          endSelections={props.endSelections}
+          startSelection={props.startSelection}
+          endSelection={props.endSelection}
+          settingsTimerList={props.settingsTimerList}
         />
       )}
     </li>
