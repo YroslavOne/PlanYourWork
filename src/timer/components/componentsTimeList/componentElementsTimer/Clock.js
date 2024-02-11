@@ -12,6 +12,7 @@ function Clock(props) {
   let time = allSeconds / 100;
 
   const [percent, setPercent] = useState(0);
+  const [percentForCss, setPercentForCss] = useState(0);
 
   useEffect(() => {
     if (secondsLeft > 0) {
@@ -27,11 +28,22 @@ function Clock(props) {
       alert('aleee');
       const nextIndex = (currentIntervalIndex + 1) % props.intervals.length;
       setCurrentIntervalIndex(nextIndex);
+      setPercentForCss(0);
       // setSecondsLeft(props.intervals[nextIndex] * 60);
       allSeconds = props.intervals[nextIndex] * 60;
       setSecondsLeft(allSeconds);
     }
   }, [secondsLeft, currentIntervalIndex, props.intervals]);
+
+  useEffect(() => {
+    if (percentForCss < percent) {
+      let value = percentForCss + 100 / (allSeconds * 100);
+      const timerId = setTimeout(() => {
+        setPercentForCss(value);
+      }, 8);
+      return () => clearTimeout(timerId);
+    }
+  }, [percentForCss, percent]);
 
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
@@ -41,7 +53,10 @@ function Clock(props) {
 
   return (
     <div className="clock">
-      <div className="clock-timer" style={{ '--pie-p': `${percent}%` }}></div>
+      <div
+        className="clock-timer"
+        style={{ '--pie-p': `${percentForCss}%` }}
+      ></div>
       <h2 className="timer">{formatTime(secondsLeft)}</h2>
       <div className="timer-background-one"></div>
       <div
