@@ -47,16 +47,15 @@
  	width: 100%;
  	aspect-ratio: 1;
  	border-radius: 50%;
+ 	transition: --pie-p 1ms linear;
  	background: conic-gradient(var(--gradient-1) var(--pie-p, 0%), #0000 0);
- 	background-color: var(--gradient);
+ 	/* background-color: var(--gradient); */
  	--gradient: radial-gradient(closest-side, var(--gradient-one-1) 80%, var(--gradient-one-2));
  	--gradient-1: #342E5E;
  	--gradient-2: #302F4F;
  	--pie-b: 1em;
- 	transition: background-color 1s ease-in-out;
  	mask: radial-gradient(closest-side, #0000 calc(99% - var(--pie-b)), white calc(100% - var(--pie-b)));
- 	transition: opacity 1s;
- 	animation-duration: 5s;
+ 	transition: background 1s linear;
  }
 
  .timer-background-two {

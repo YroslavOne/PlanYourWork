@@ -11,13 +11,13 @@ function Clock(props) {
   let allSeconds = props.intervals[currentIntervalIndex] * 60;
   let time = allSeconds / 100;
 
-  const [percent, SetPercent] = useState(0);
+  const [percent, setPercent] = useState(0);
 
   useEffect(() => {
     if (secondsLeft > 0) {
       if (props.pause === false) {
         let valueForPercent = ((allSeconds - secondsLeft) / allSeconds) * 100;
-        SetPercent(valueForPercent);
+        setPercent(valueForPercent);
         const timerId = setTimeout(() => {
           setSecondsLeft(secondsLeft - 1);
         }, 1000);
@@ -41,21 +41,12 @@ function Clock(props) {
 
   return (
     <div className="clock">
-      {/* <h2>
-        Текущий интервал: {currentIntervalIndex % 2 === 0 ? 'Работа' : 'Отдых'}
-      </h2> */}
-      <div
-        className="clock-timer"
-        style={{ '--pie-p': `${percent}%` }}
-        // style={{
-        //   background: `conic-gradient(#4caf50 ${percent}%, #ddd ${percent}%)`,
-        // }}
-      ></div>
+      <div className="clock-timer" style={{ '--pie-p': `${percent}%` }}></div>
       <h2 className="timer">{formatTime(secondsLeft)}</h2>
       <div className="timer-background-one"></div>
       <div
         className="timer-background-two"
-        style={({ '--pie-p': `${percent}%` }, { '--pie-t': `${allSeconds}` })}
+        style={{ '--pie-p': `${percent}%` }}
       ></div>
       <div
         className="rotate-timer-slider"
