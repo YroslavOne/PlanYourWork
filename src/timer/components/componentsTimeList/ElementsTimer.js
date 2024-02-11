@@ -1,7 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
 import { Context } from '../../../Context';
 import Clock from './componentElementsTimer/Clock';
-
 function ElementsTimer() {
   const { settingsTimer } = useContext(Context);
 
@@ -19,12 +18,18 @@ function ElementsTimer() {
     }
   }
 
+  let rows = [];
+  for (let i = 0; i < settingsTimer[3].value; i++) {
+    rows.push(<li>doth</li>);
+  }
+
   function turnPause() {
     setPause(!pause);
   }
   return (
     <div>
       <Clock intervals={intervals} pause={pause} />
+      <ul>{rows}</ul>
       <button onClick={(e) => turnPause()}>pause</button>
     </div>
   );

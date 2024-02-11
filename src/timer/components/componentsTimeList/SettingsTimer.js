@@ -8,8 +8,13 @@ import { v4 as uuidv4 } from 'uuid';
 import Editor from './settingsTimerList/EditorName';
 
 function SettingsTimer() {
-  const { settingsTimer, setSettingsTimer, nameTimer, setnameTimer } =
-    useContext(Context);
+  const {
+    settingsTimer,
+    setSettingsTimer,
+    nameTimer,
+    setNameTimer,
+    setScreensTimer,
+  } = useContext(Context);
   let settingsTimerList = structuredClone(settingsTimer);
 
   function cancelButton() {
@@ -19,6 +24,7 @@ function SettingsTimer() {
       newArray.push(objSettingsTimer);
     });
     setSettingsTimer(newArray);
+    setScreensTimer(SCREENS_TIMER.TIMER);
   }
 
   function saveButton() {
@@ -28,11 +34,12 @@ function SettingsTimer() {
       newArray.push(objSettingsTimer);
     });
     setSettingsTimer(newArray);
+    setScreensTimer(SCREENS_TIMER.TIMER);
   }
 
   return (
     <div>
-      <Editor valueName={nameTimer} setValueName={setnameTimer} />
+      <Editor valueName={nameTimer} setValueName={setNameTimer} />
 
       <SettingsTimerElem
         settingsTimer={settingsTimer}

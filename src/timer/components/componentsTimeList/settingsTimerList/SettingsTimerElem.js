@@ -2,14 +2,6 @@
 import ElementSettingsTimerList from './ElementSettingsTimerList';
 
 function SettingsTimerElem(props) {
-  console.log(props.settingsTimer);
-
-  // function element(objSettingsTimer, index) {
-  //   console.log(objSettingsTimer);
-  //   return (
-
-  //   );
-  // }
   return (
     <ul>
       {

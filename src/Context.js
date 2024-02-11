@@ -6,9 +6,9 @@ export const Context = React.createContext({
   settingsTimer: null,
   setSettingsTimer: () => {},
   screensTimer: null,
-  setForSaveSettingsTimer: () => {},
+  setScreensTimer: () => {},
   nameTimer: null,
-  setnameTimer: () => {},
+  setNameTimer: () => {},
 });
 
 export const ContextProvider = ({ children }) => {
@@ -59,7 +59,7 @@ export const ContextProvider = ({ children }) => {
   const [settingsTimer, setSettingsTimer] = useState(
     JSON.parse(localStorage.SettingTimer)
   );
-  const [nameTimer, setnameTimer] = useState(localStorage?.NameTimer);
+  const [nameTimer, setNameTimer] = useState(localStorage?.NameTimer);
 
   const [screensTimer, setScreensTimer] = useState(SCREENS_TIMER.TIMER);
   localStorage.SettingTimer = JSON.stringify(settingsTimer);
@@ -73,7 +73,7 @@ export const ContextProvider = ({ children }) => {
         screensTimer,
         setScreensTimer,
         nameTimer,
-        setnameTimer,
+        setNameTimer,
       }}
     >
       {children}
