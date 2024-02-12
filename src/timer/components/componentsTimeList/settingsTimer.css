@@ -1,0 +1,25 @@
+.settings {}
+
+.settings-button {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+
+.settings-button-cancel {
+	background: none;
+	border: none;
+	border-radius: 20px;
+	color: white;
+	padding: 10px;
+	width: 30%;
+}
+
+.settings-button-save {
+	background: #664EFC;
+	border: none;
+	border-radius: 20px;
+	color: white;
+	padding: 10px;
+	width: 40%;
+}

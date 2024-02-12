@@ -1,5 +1,6 @@
 import { Pencil } from 'react-bootstrap-icons';
 import React, { useEffect, useRef, useState } from 'react';
+import './editorName.css';
 
 function Editor(props) {
   const editRef = useRef();
@@ -25,14 +26,16 @@ function Editor(props) {
   function enterName() {
     if (edit === false) {
       return (
-        <div>
-          <h2>{props.valueName}</h2> <Pencil />{' '}
+        <div className="settings-editor-name-text">
+          <h2 className="settings-editor-name-text-title">{props.valueName}</h2>{' '}
+          <Pencil className="settings-editor-name-text-pencil" />
         </div>
       );
     } else {
       return (
-        <div>
+        <div className="settings-editor-name-text">
           <input
+            className="settings-editor-name-input"
             type="text"
             value={props.valueName}
             onChange={(e) => props.setValueName(e.target.value)}
@@ -42,7 +45,7 @@ function Editor(props) {
     }
   }
   return (
-    <div className="settings-timer-name" ref={editRef}>
+    <div className="settings-editor-name" ref={editRef}>
       {enterName()}
     </div>
   );

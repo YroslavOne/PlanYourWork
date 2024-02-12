@@ -4,6 +4,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 // import ElementSettingsTimerList from './settingsTimerList/ElementSettingsTimerList';
 import SettingsTimerElem from './settingsTimerList/SettingsTimerElem';
 import { v4 as uuidv4 } from 'uuid';
+import './settingsTimer.css';
 
 import Editor from './settingsTimerList/EditorName';
 
@@ -38,15 +39,24 @@ function SettingsTimer() {
   }
 
   return (
-    <div>
+    <div className="settings">
       <Editor valueName={nameTimer} setValueName={setNameTimer} />
 
       <SettingsTimerElem
         settingsTimer={settingsTimer}
         settingsTimerList={settingsTimerList}
       />
-      <button onClick={(e) => cancelButton()}>cancel</button>
-      <button onClick={(e) => saveButton()}>save</button>
+      <div className="settings-button">
+        <button
+          className="settings-button-cancel"
+          onClick={(e) => cancelButton()}
+        >
+          Cancel
+        </button>
+        <button className="settings-button-save" onClick={(e) => saveButton()}>
+          Save
+        </button>
+      </div>
     </div>
   );
 }

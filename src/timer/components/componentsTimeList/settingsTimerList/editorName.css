@@ -1,0 +1,21 @@
+.settings-editor-name {
+	margin-top: 20px;
+}
+
+.settings-editor-name-text {
+	width: 100%;
+	color: white;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	align-content: center;
+}
+
+.settings-editor-name-input {
+	border-radius: 5px;
+	font-size: 18px;
+	background: #4E40B1;
+	color: white;
+	border: none;
+	padding: 5px;
+}

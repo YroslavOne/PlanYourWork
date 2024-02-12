@@ -8,8 +8,8 @@ import './tabTimer.css';
 
 function TabTimer() {
   const { screensTimer, setScreensTimer } = useContext(Context);
-  const { classClock, setClassClock } = useContext(Context);
-  const { classSettings, setClassSettings } = useContext(Context);
+  // const { classClock, setClassClock } = useContext('tab-button-turn-off');
+  // const { classSettings, setClassSettings } = useContext(Context);
 
   const [value, setValue] = useState(1);
 
@@ -26,13 +26,27 @@ function TabTimer() {
       {screensTimer === SCREENS_TIMER.SETTINGS_TIMER && <SettingsTimer />}
       {screensTimer === SCREENS_TIMER.TIMER && <Timer />}
 
-<div className='tab-button'>
-      <Clock value="1" onClick={(e) => clickTimer(SCREENS_TIMER.TIMER, e)} className='tab-button-turn-off'/>
-       
-      <Sliders2Vertical value="2"
-      
-      onClick={(e) => clickTimer(SCREENS_TIMER.SETTINGS_TIMER, e)} className='tab-button-turn'/>
-</div>
+      <div className="tab-button">
+        <Clock
+          value="1"
+          onClick={(e) => clickTimer(SCREENS_TIMER.TIMER, e)}
+          className={
+            screensTimer === SCREENS_TIMER.TIMER
+              ? 'tab-button-turn'
+              : 'tab-button-turn-off'
+          }
+        />
+
+        <Sliders2Vertical
+          value="2"
+          onClick={(e) => clickTimer(SCREENS_TIMER.SETTINGS_TIMER, e)}
+          className={
+            screensTimer === SCREENS_TIMER.SETTINGS_TIMER
+              ? 'tab-button-turn'
+              : 'tab-button-turn-off'
+          }
+        />
+      </div>
       {/* <input
         type="radio"
         name="timer"
