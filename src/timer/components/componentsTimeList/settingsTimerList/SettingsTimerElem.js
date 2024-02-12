@@ -1,9 +1,10 @@
 // import Chekes from './chekes';
 import ElementSettingsTimerList from './ElementSettingsTimerList';
+import './settingsTimerElement.css';
 
 function SettingsTimerElem(props) {
   return (
-    <ul>
+    <ul className="settings-timer-element">
       {
         props.settingsTimer.map((objSettingsTimer) => {
           return (

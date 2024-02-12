@@ -1,0 +1,41 @@
+h4,
+p {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.element-settings-timer-list {
+	background: #2D2C3E;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 10px 20px;
+	border-radius: 20px;
+}
+
+.element-settings-timer-list-div {
+	display: flex;
+	width: 200px;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+}
+
+.element-settings-timer-list-title {
+	color: #9B99A4;
+}
+
+.element-settings-timer-list-block {
+	margin-left: 40px;
+	display: flex;
+	align-items: center;
+	align-content: center;
+}
+
+.element-settings-timer-list-value {
+	color: #9B99A4;
+}
+
+.element-settings-timer-list-arrow {
+	color: #9B99A4;
+}
