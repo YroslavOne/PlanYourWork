@@ -4,11 +4,11 @@ import './clock.css';
 function Clock(props) {
   const container = {};
   const [currentIntervalIndex, setCurrentIntervalIndex] = useState(0);
-
   const [secondsLeft, setSecondsLeft] = useState(
-    props.intervals[currentIntervalIndex] * 60
+    props.intervals[currentIntervalIndex].value * 60
   );
-  let allSeconds = props.intervals[currentIntervalIndex] * 60;
+  props.setCurrentlyRunning(currentIntervalIndex)
+  let allSeconds = props.intervals[currentIntervalIndex].value * 60;
   let time = allSeconds / 100;
 
   const [percent, setPercent] = useState(0);
@@ -26,11 +26,11 @@ function Clock(props) {
       }
     } else {
       alert('aleee');
+      props.setPause(!props.pause)
       const nextIndex = (currentIntervalIndex + 1) % props.intervals.length;
       setCurrentIntervalIndex(nextIndex);
       setPercentForCss(0);
-      // setSecondsLeft(props.intervals[nextIndex] * 60);
-      allSeconds = props.intervals[nextIndex] * 60;
+      allSeconds = props.intervals[nextIndex].value * 60;
       setSecondsLeft(allSeconds);
     }
   }, [secondsLeft, currentIntervalIndex, props.intervals]);

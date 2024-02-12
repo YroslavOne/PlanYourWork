@@ -1,3 +1,25 @@
 input {
 	list-style: none;
 }
+.tab{}
+.tab-button{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	align-content: center;
+}
+
+.tab-button > button {
+background: none;
+border: 0px;
+}
+
+.tab-button-turn-off{
+	color: #9B99A4;
+}
+.tab-button-turn{
+display: inline-block;
+filter: drop-shadow(0 0 10px #614ECE);
+fill: #614ECE;
+
+}

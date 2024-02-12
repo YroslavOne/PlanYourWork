@@ -4,7 +4,7 @@ import TabTimer from "./timer/TabTimer";
 
 function App() {
   return (
-    <div>
+    <div className="App">
     <ContextProvider>
       <TabTimer />
     </ContextProvider>

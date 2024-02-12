@@ -1,0 +1,26 @@
+button {
+    list-style: none;
+}
+.element-timer{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.element-timer-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+background-color: #664EFE;
+border-radius: 50%;
+/* width: 20%; */
+aspect-ratio: 1;
+border: 0px;
+}
+
+.element-timer-button-icon{
+font-size: 35px;
+color: white;
+}

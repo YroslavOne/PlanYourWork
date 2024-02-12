@@ -8,6 +8,8 @@ import './tabTimer.css';
 
 function TabTimer() {
   const { screensTimer, setScreensTimer } = useContext(Context);
+  const { classClock, setClassClock } = useContext(Context);
+  const { classSettings, setClassSettings } = useContext(Context);
 
   const [value, setValue] = useState(1);
 
@@ -19,17 +21,19 @@ function TabTimer() {
   }
 
   return (
-    <div className="Tab">
+    <div className="tab">
       {/* {screensTimer === SCREENS_TIMER.TIMER_LIST && <TimerList />} */}
       {screensTimer === SCREENS_TIMER.SETTINGS_TIMER && <SettingsTimer />}
       {screensTimer === SCREENS_TIMER.TIMER && <Timer />}
 
-      {/* <button onClick={(e) => clickTimer(SCREENS_TIMER.TIMER)}></button>
-      <button
-        onClick={(e) => clickTimer(SCREENS_TIMER.SETTINGS_TIMER)}
-      ></button> */}
-
-      <input
+<div className='tab-button'>
+      <Clock value="1" onClick={(e) => clickTimer(SCREENS_TIMER.TIMER, e)} className='tab-button-turn-off'/>
+       
+      <Sliders2Vertical value="2"
+      
+      onClick={(e) => clickTimer(SCREENS_TIMER.SETTINGS_TIMER, e)} className='tab-button-turn'/>
+</div>
+      {/* <input
         type="radio"
         name="timer"
         value="1"
@@ -46,12 +50,11 @@ function TabTimer() {
         name="settings"
         value="2"
         checked={value == '2' ? true : false}
-        onChange={(e) => clickTimer(SCREENS_TIMER.SETTINGS_TIMER, e)}
+        
       />
-      <label name="settings">
-        {' '}
+      <label name="settings" onChange={(e) => clickTimer(SCREENS_TIMER.SETTINGS_TIMER, e)}>
         <Sliders2Vertical />
-      </label>
+      </label> */}
     </div>
   );
 }

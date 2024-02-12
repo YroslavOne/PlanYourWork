@@ -42,7 +42,7 @@ export const ContextProvider = ({ children }) => {
       unit: 'intervals',
       value: 4,
       startSelection: 1,
-      endSelection: 60,
+      endSelection: 10,
       key: uuidv4(),
     },
   ];
