@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import Picker from 'react-mobile-picker';
+import "./timePicker.css"
 // import { Context } from '../../../../Context';
 
 function TimerPicker(props) {
@@ -25,14 +26,18 @@ function TimerPicker(props) {
   });
 
   return (
-    <Picker value={pickerValue} onChange={setPickerValue}>
+    <Picker className='picker'  style={null}  color='blue' value={pickerValue} onChange={setPickerValue}>
       {Object.keys(selections).map((name) => (
-        <Picker.Column key={name} name={name}>
+        <Picker.Column className='picker-colum' style={null} key={name} name={name}>
           {selections[name].map((option) => (
-            <Picker.Item key={option} value={option}>
+            <Picker.Item className='picker-colum-item'  style={null}  key={option} value={option}>
+              
               {option}
+              
             </Picker.Item>
           ))}
+          <div>
+              </div>
         </Picker.Column>
       ))}
     </Picker>

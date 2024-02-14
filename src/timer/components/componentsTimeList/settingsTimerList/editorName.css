@@ -9,6 +9,9 @@
 	justify-content: space-evenly;
 	align-items: center;
 	align-content: center;
+	margin: 10.5px 0;
+	
+	
 }
 
 .settings-editor-name-input {
@@ -18,4 +21,14 @@
 	color: white;
 	border: none;
 	padding: 5px;
+}
+.settings-editor-name-text-title{
+	color: white;
+    text-align: center;
+    font-size: 15px;
+}
+.settings-editor-name-text-pencil{
+	color: white;
+    text-align: center;
+    font-size: 15px;
 }

@@ -24,7 +24,7 @@ function ElementSettingsTimerList(props) {
           <p className="element-settings-timer-list-value">
             {valueSettings} {props.unit}
           </p>
-          <a>
+          <a className='element-settings-timer-list-arrow-style'>
             {onDisplayTimePicker === true ? (
               <CaretUp className="element-settings-timer-list-arrow" />
             ) : (

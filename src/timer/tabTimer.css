@@ -1,9 +1,15 @@
 input {
 	list-style: none;
 }
-.tab{}
+.tab{
+	margin: 20px 0 20px 0;
+}
 .tab-button{
+	min-width: 100%;
 	display: flex;
+	position: fixed;
+	bottom: 20px;
+	right: 0;
 	justify-content: space-around;
 	align-items: center;
 	align-content: center;

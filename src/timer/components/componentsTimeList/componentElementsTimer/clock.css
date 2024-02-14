@@ -1,7 +1,9 @@
  h2 {
  	list-style: none;
  }
-
+.clock h2{
+	font-size: 40px;
+}
 
  .clock {
  	display: flex;
@@ -10,8 +12,8 @@
  	align-content: center;
  	margin: 16px;
  	position: relative;
- 	width: 150px;
- 	height: 150px;
+ 	width: 300px;
+ 	height: 300px;
  	background-color: #232230;
  	z-index: -1000;
  	aspect-ratio: 1;
@@ -37,7 +39,7 @@
  	--gradient: radial-gradient(closest-side, var(--gradient-one-1) 80%, var(--gradient-one-2));
  	--gradient-one-1: #342E5E;
  	--gradient-one-2: #252338;
- 	--pie-b: 1em;
+ 	--pie-b: 3em;
  	mask: radial-gradient(closest-side, rgba(0, 0, 0, 0) calc(99% - var(--pie-b)), rgb(0, 0, 0) calc(100% - var(--pie-b)));
  }
 
@@ -53,7 +55,7 @@
  	--gradient: radial-gradient(closest-side, var(--gradient-one-1) 80%, var(--gradient-one-2));
  	--gradient-1: #342E5E;
  	--gradient-2: #302F4F;
- 	--pie-b: 1em;
+ 	--pie-b: 3em;
  	mask: radial-gradient(closest-side, #0000 calc(99% - var(--pie-b)), white calc(100% - var(--pie-b)));
  	animation: progress 1s linear infinite
  }
@@ -65,10 +67,10 @@
  	aspect-ratio: 1;
  	border-radius: 50%;
  	background: conic-gradient(var(--gradient-two-1), var(--gradient-two-2) var(--pie-p, 0%), #0000 0);
- 	--gradient-two-1: #3B3678;
- 	--gradient-two-2: #654DF9;
- 	--pie-b: 1em;
- 	mask: radial-gradient(closest-side, #0000 calc(99% - var(--pie-b)), rgb(230, 8, 8) calc(100% - var(--pie-b)), #0000 calc(102% - var(--pie-b)), #0000 100%);
+ 	--gradient-two-1: #8e87df;
+ 	--gradient-two-2: #270ae4;
+ 	--pie-b: 3em;
+ 	mask: radial-gradient(closest-side, #0000 calc(99% - var(--pie-b)), rgb(230, 8, 8) calc(100% - var(--pie-b)), #0000 calc(105% - var(--pie-b)), #0000 100%);
  }
 
  .timer-slider {
@@ -76,7 +78,7 @@
  	position: absolute;
  	width: 5%;
  	left: 40%;
- 	top: 0px;
+ 	top: 21px;
  	aspect-ratio: 1;
  	border-radius: 50%;
  	width: 10%;
@@ -153,7 +155,7 @@
 	content: "";
 	left: 0;
 	top: 50%;
-	width: 1vw; 
+	width: 2vw; 
 	height: 1px; 
 	background-color: #2D2C3C; 
 	/* padding: 1px; */

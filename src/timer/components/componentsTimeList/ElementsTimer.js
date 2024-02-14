@@ -62,7 +62,7 @@ function ElementsTimer() {
         setPause={setPause}
         setCurrentlyRunning={setCurrentlyRunning}
       />
-      <ul>{rows}</ul>
+      <ul className="element-timer-doth">{rows}</ul>
       <button className="element-timer-button" onClick={(e) => turnPause()}>
         {pause === true ? (
           <Play className="element-timer-button-icon" />

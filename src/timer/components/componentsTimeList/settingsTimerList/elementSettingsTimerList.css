@@ -22,11 +22,11 @@ p {
 }
 
 .element-settings-timer-list-title {
+	font-weight: 200;
 	color: #9B99A4;
 }
 
 .element-settings-timer-list-block {
-	margin-left: 40px;
 	display: flex;
 	align-items: center;
 	align-content: center;
@@ -34,8 +34,13 @@ p {
 
 .element-settings-timer-list-value {
 	color: #9B99A4;
+	font-weight: 200;
+
 }
 
 .element-settings-timer-list-arrow {
 	color: #9B99A4;
+}
+.element-settings-timer-list-arrow-style{
+	margin-left: 10px;
 }

@@ -14,3 +14,23 @@
 	color: #fff;
 	background-color: #6200EE; /* Используйте цвет из вашего дизайна */
   }
+  .picker{
+	color: white;
+	width: 100%;
+  }
+  .picker-colum{}
+  .picker-colum-item{
+	background:none;
+  }
+  .picker-colum-item{
+	background:none;
+	padding: 0 20px;
+  }
+  .picker div:last-child{
+	z-index: -1;
+	background: #6200EE;
+	box-shadow: 0 0 20px #6200EE;
+  }
+  .picker div:last-child div{
+	display: none;
+  }

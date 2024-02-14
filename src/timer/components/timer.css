@@ -10,12 +10,14 @@ h2 {
     width: 100%;
     flex-direction: column;
 }
-.imer-name-app{
+.timer-name-app{
     color: white;
     text-align: center;
+    font-size: 15px;
 }
 .timer-name-timer{
-width: 100%;
+min-width: 200px;
+min-width: 100%;
 font-size: 10px;
 background: #6A4CA4;
 display: flex;
@@ -26,10 +28,10 @@ border-radius: 20px;
 font-weight: 100;
 padding-top: 10px;
     padding-bottom: 10px;
+    margin: 20px 0;
 }
-.timer-name-timer-title{
-    
-
+.timer-name-timer-title {
+    /* font-size: 15px; */
 padding-left: 15px;
     font-weight: 100;
 

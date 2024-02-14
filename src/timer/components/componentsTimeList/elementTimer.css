@@ -15,12 +15,15 @@ align-items: center;
     align-content: center;
 background-color: #664EFE;
 border-radius: 50%;
-/* width: 20%; */
 aspect-ratio: 1;
 border: 0px;
+margin: 20px 0 40px 0;
 }
 
 .element-timer-button-icon{
 font-size: 35px;
 color: white;
+}
+.element-timer-doth{
+    margin: 4px 0 20px 0;
 }

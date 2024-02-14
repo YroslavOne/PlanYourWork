@@ -25,13 +25,15 @@ function Clock(props) {
         return () => clearTimeout(timerId);
       }
     } else {
-      alert('aleee');
+      
       props.setPause(!props.pause)
       const nextIndex = (currentIntervalIndex + 1) % props.intervals.length;
       setCurrentIntervalIndex(nextIndex);
       setPercentForCss(0);
       allSeconds = props.intervals[nextIndex].value * 60;
       setSecondsLeft(allSeconds);
+      setPercent(100)
+      alert('aleee');
     }
   }, [secondsLeft, currentIntervalIndex, props.intervals]);
 
@@ -61,7 +63,7 @@ function Clock(props) {
       <div className="timer-background-one"></div>
       <div
         className="timer-background-two"
-        style={{ '--pie-p': `${percent}%` }}
+        style={{ '--pie-p': `${percentForCss}%` }}
       ></div>
       <div
         className="rotate-timer-slider"
