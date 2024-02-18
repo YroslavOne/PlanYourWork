@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './clock.css';
 
 function Clock(props) {
-  const container = {};
+  // const container = {};
   const [currentIntervalIndex, setCurrentIntervalIndex] = useState(0);
   const [secondsLeft, setSecondsLeft] = useState(
     props.intervals[currentIntervalIndex].value * 60
   );
-  props.setCurrentlyRunning(currentIntervalIndex)
+  props.setCurrentlyRunning(currentIntervalIndex);
   let allSeconds = props.intervals[currentIntervalIndex].value * 60;
-  let time = allSeconds / 100;
+  // let time = allSeconds / 100;
 
   const [percent, setPercent] = useState(0);
   const [percentForCss, setPercentForCss] = useState(0);
@@ -25,18 +25,20 @@ function Clock(props) {
         return () => clearTimeout(timerId);
       }
     } else {
-      
-      props.setPause(!props.pause)
+      props.setPause(!props.pause);
       const nextIndex = (currentIntervalIndex + 1) % props.intervals.length;
       setCurrentIntervalIndex(nextIndex);
       setPercentForCss(0);
       allSeconds = props.intervals[nextIndex].value * 60;
       setSecondsLeft(allSeconds);
-      setPercent(100)
+      setPercent(100);
       alert('aleee');
     }
   }, [secondsLeft, currentIntervalIndex, props.intervals]);
 
+  // requestAnimationFrame
+  // transform для css -
+  // gudini посмотреть это)
   useEffect(() => {
     if (percentForCss < percent) {
       let value = percentForCss + 100 / (allSeconds * 100);

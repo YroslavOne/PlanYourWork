@@ -16,44 +16,49 @@ function SettingsTimer() {
     setNameTimer,
     setScreensTimer,
   } = useContext(Context);
-  let settingsTimerList = structuredClone(settingsTimer);
+  let settingsTimerClone = structuredClone(settingsTimer);
 
-  function cancelButton() {
-    let newArray = [];
-    settingsTimer.map((objSettingsTimer) => {
-      objSettingsTimer.key = uuidv4();
-      newArray.push(objSettingsTimer);
-    });
-    setSettingsTimer(newArray);
-    setScreensTimer(SCREENS_TIMER.TIMER);
-  }
+  // function getUpdateTimerCallBack() {
+  //   return (settingsTimer) => {
+  //     let newArray = [];
+  //     settingsTimer.map((objSettingsTimer) => {
+  //       objSettingsTimer.key = uuidv4();
+  //       newArray.push(objSettingsTimer);
+  //     });
+  //     setSettingsTimer(newArray);
+  //     setScreensTimer(SCREENS_TIMER.TIMER);
+  //   };
+  // }
 
-  function saveButton() {
-    let newArray = [];
-    settingsTimerList.map((objSettingsTimer) => {
-      objSettingsTimer.key = uuidv4();
-      newArray.push(objSettingsTimer);
-    });
-    setSettingsTimer(newArray);
-    setScreensTimer(SCREENS_TIMER.TIMER);
+  // const cancelTimer = getUpdateTimerCallBack();
+  // const saveTimer = getUpdateTimerCallBack();
+
+  function saveOrCancelTimer(settingsTimer) {
+    // let newArray = [];
+    // settingsTimer.map((objSettingsTimer) => {
+    //   objSettingsTimer.key = uuidv4();
+    //   newArray.push(objSettingsTimer);
+    // });
+    setSettingsTimer([...settingsTimer.map((timer) => ({ ...timer }))]);
+    // setScreensTimer(SCREENS_TIMER.TIMER);
   }
 
   return (
     <div className="settings">
       <Editor valueName={nameTimer} setValueName={setNameTimer} />
 
-      <SettingsTimerElem
-        settingsTimer={settingsTimer}
-        settingsTimerList={settingsTimerList}
-      />
+      <SettingsTimerElem settingsTimer={settingsTimerClone} />
       <div className="settings-button">
         <button
           className="settings-button-cancel"
-          onClick={(e) => cancelButton()}
+          onClick={(e) => saveOrCancelTimer(settingsTimer)}
         >
           Cancel
         </button>
-        <button className="settings-button-save" onClick={(e) => saveButton()}>
+        <button
+          className="settings-button-save"
+          onClick={(e) => saveOrCancelTimer(settingsTimerClone)}
+        >
           Save
         </button>
       </div>

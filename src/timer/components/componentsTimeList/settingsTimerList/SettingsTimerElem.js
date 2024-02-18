@@ -3,13 +3,15 @@ import ElementSettingsTimerList from './ElementSettingsTimerList';
 import './settingsTimerElement.css';
 
 function SettingsTimerElem(props) {
+  const { settingsTimer } = props;
+
   return (
     <ul className="settings-timer-element">
       {
-        props.settingsTimer.map((objSettingsTimer) => {
+        settingsTimer.map((objSettingsTimer) => {
           return (
             <ElementSettingsTimerList
-              settingsTimerList={props.settingsTimerList}
+              // settingsTimerList={settingsTimerList}
               name={objSettingsTimer.name}
               unit={objSettingsTimer.unit}
               value={objSettingsTimer.value}

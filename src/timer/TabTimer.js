@@ -8,24 +8,21 @@ import './tabTimer.css';
 
 function TabTimer() {
   const { screensTimer, setScreensTimer } = useContext(Context);
-  // const { classClock, setClassClock } = useContext('tab-button-turn-off');
-  // const { classSettings, setClassSettings } = useContext(Context);
 
-  const [value, setValue] = useState(1);
+  // const [value, setValue] = useState(1);
 
-  function chengeValue(e) {}
+  // function chengeValue(e) {}
 
   function clickTimer(screen, e) {
     setScreensTimer(screen);
-    setValue(e.target.value);
+    // setValue(e.target.value);
   }
 
   return (
     <div className="tab">
-      {/* {screensTimer === SCREENS_TIMER.TIMER_LIST && <TimerList />} */}
       {screensTimer === SCREENS_TIMER.SETTINGS_TIMER && <SettingsTimer />}
       {screensTimer === SCREENS_TIMER.TIMER && <Timer />}
-
+      // cделай отдельный компанент
       <div className="tab-button">
         <Clock
           value="1"

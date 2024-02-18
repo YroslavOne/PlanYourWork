@@ -47,12 +47,10 @@ export const ContextProvider = ({ children }) => {
     },
   ];
 
-  if (localStorage?.SettingTimer) {
-  } else {
+  if (!localStorage?.SettingTimer) {
     localStorage.SettingTimer = JSON.stringify(settingTimer);
   }
-  if (localStorage?.NameTimer) {
-  } else {
+  if (!localStorage?.NameTimer) {
     localStorage.setItem('NameTimer', 'Add new timer');
   }
 
@@ -63,7 +61,7 @@ export const ContextProvider = ({ children }) => {
 
   const [screensTimer, setScreensTimer] = useState(SCREENS_TIMER.TIMER);
   localStorage.SettingTimer = JSON.stringify(settingsTimer);
-  localStorage.NameTimer = nameTimer;
+  localStorage.NameTimer = nameTimer; // useEffect переписать две строки)
 
   return (
     <Context.Provider
