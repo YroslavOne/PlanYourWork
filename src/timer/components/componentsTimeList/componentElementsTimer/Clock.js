@@ -41,11 +41,12 @@ function Clock(props) {
   // transform для css -
   // gudini посмотреть это)
 
-  
   const smoothIncrease = function () {
-    console.log("hi")
-  if (percentForCss < percent) {
     
+
+  if (percentForCss < percent) {
+    let curent = new Date().getTime()
+    console.log(curent)
       let value = percentForCss + (100 / (allSeconds*100))*1.666666666666667;
       setPercentForCss(value);
       // console.log("hi")
