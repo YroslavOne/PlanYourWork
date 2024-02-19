@@ -1,6 +1,6 @@
-import { useState } from "react";
-import Picker from "react-mobile-picker";
-import "./TimePicker.css";
+import Picker from 'react-mobile-picker';
+import { useState } from 'react';
+import './TimePicker.css';
 
 function TimerPicker(props) {
   let selections = {

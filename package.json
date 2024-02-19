@@ -11,7 +11,10 @@
     "react-bootstrap-icons": "^1.10.3",
     "react-dom": "^18.2.0",
     "react-mobile-picker": "^1.0.0",
+    "react-mobile-picker-scroll": "^0.2.14",
     "react-scripts": "5.0.1",
+    "react-scrollable-picker": "^1.0.2",
+    "rmc-picker-scroll": "^5.0.10",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
