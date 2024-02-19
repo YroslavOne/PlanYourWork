@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import TimePicker from './TimerPicker';
+import TimerPicker from './TimerPicker';
 import TimerPickerDesktop from './TimerPickerDesktop';
 import { CaretUp } from 'react-bootstrap-icons';
 import { CaretDown } from 'react-bootstrap-icons';
@@ -34,7 +34,7 @@ function TimerSettingItem(props) {
         </div>
       </div>
 
-      {true === onDisplayTimePicker && (
+      {true === onDisplayTimePicker && window.innerWidth > 1366 && (
         <TimerPickerDesktop
           initialValue={valueSettings}
           name={props.name}
@@ -43,7 +43,16 @@ function TimerSettingItem(props) {
           endSelection={props.endSelection}
           settingsTimer={props.settingsTimer}
         />
-        // <App />
+      )}
+      {true === onDisplayTimePicker && window.innerWidth < 1366 && (
+        <TimerPicker
+          initialValue={valueSettings}
+          name={props.name}
+          setValueSettings={setValueSettings}
+          startSelection={props.startSelection}
+          endSelection={props.endSelection}
+          settingsTimer={props.settingsTimer}
+        />
       )}
     </li>
   );

@@ -1,36 +1,54 @@
 .time-picker {
-	height: 200px; /* Высота видимой области */
+	height: 200px;
+	/* Высота видимой области */
 	overflow-y: scroll;
 	position: relative;
-  }
-  
-  .time-item {
+}
+
+.time-item {
 	padding: 10px;
 	text-align: center;
-  }
-  
-  .time-item.selected {
+}
+
+.time-item.selected {
 	font-weight: bold;
 	color: #fff;
-	background-color: #6200EE; /* Используйте цвет из вашего дизайна */
-  }
-  .picker{
+	background-color: #6200EE;
+	/* Используйте цвет из вашего дизайна */
+}
+
+.picker {
 	color: white;
 	width: 100%;
-  }
-  .picker-colum{}
-  .picker-colum-item{
-	background:none;
-  }
-  .picker-colum-item{
-	background:none;
+}
+
+.picker-colum {}
+
+.picker-colum-item {
+	background: none;
+}
+
+.picker-colum-item {
+	background: none;
 	padding: 0 20px;
-  }
-  .picker div:last-child{
+}
+
+.picker div:last-child {
 	z-index: -1;
 	background: #6200EE;
 	box-shadow: 0 0 20px #6200EE;
-  }
-  .picker div:last-child div{
+}
+
+.picker div:last-child div {
 	display: none;
-  }
+}
+
+.picker-container .picker-column div {
+	list-style: none;
+	text: white;
+	list-style: armenian;
+}
+
+.picker-item {
+	color: white;
+}
