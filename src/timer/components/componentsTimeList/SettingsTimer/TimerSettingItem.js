@@ -1,11 +1,10 @@
-import { useState, useContext } from 'react';
-import TimePicker from './TimerPicker';
-import { Context } from '../../../../Context';
-import { CaretUp } from 'react-bootstrap-icons';
-import { CaretDown } from 'react-bootstrap-icons';
-import './elementSettingsTimerList.css';
+import { useState } from "react";
+import TimePicker from "./TimerPicker";
+import { CaretUp } from "react-bootstrap-icons";
+import { CaretDown } from "react-bootstrap-icons";
+import "./TimerSettingItem.css";
 
-function ElementSettingsTimerList(props) {
+function TimerSettingItem(props) {
   const [onDisplayTimePicker, setOnDisplayTimePicker] = useState(false);
   const [valueSettings, setValueSettings] = useState(props.value);
   function clickDisplay() {
@@ -24,7 +23,7 @@ function ElementSettingsTimerList(props) {
           <p className="element-settings-timer-list-value">
             {valueSettings} {props.unit}
           </p>
-          <a className='element-settings-timer-list-arrow-style'>
+          <a className="element-settings-timer-list-arrow-style">
             {onDisplayTimePicker === true ? (
               <CaretUp className="element-settings-timer-list-arrow" />
             ) : (
@@ -41,10 +40,10 @@ function ElementSettingsTimerList(props) {
           setValueSettings={setValueSettings}
           startSelection={props.startSelection}
           endSelection={props.endSelection}
-          settingsTimerList={props.settingsTimerList}
+          settingsTimer={props.settingsTimer}
         />
       )}
     </li>
   );
 }
-export default ElementSettingsTimerList;
+export default TimerSettingItem;
