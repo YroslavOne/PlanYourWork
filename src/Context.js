@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { SCREENS, SCREENS_TIMER } from './Consist';
 
@@ -60,8 +60,13 @@ export const ContextProvider = ({ children }) => {
   const [nameTimer, setNameTimer] = useState(localStorage?.NameTimer);
 
   const [screensTimer, setScreensTimer] = useState(SCREENS_TIMER.TIMER);
+
+useEffect(()=>{
   localStorage.SettingTimer = JSON.stringify(settingsTimer);
-  localStorage.NameTimer = nameTimer; // useEffect переписать две строки)
+  localStorage.NameTimer = nameTimer;
+},[nameTimer,settingsTimer])
+
+
 
   return (
     <Context.Provider

@@ -40,7 +40,6 @@ function Clock(props) {
 
   const smoothIncrease = function () {
     if (percentForCss < percent) {
-      let curent = new Date().getTime();
       let value =
         percentForCss + (100 / (allSeconds * 100)) * 1.666666666666667;
       setPercentForCss(value);

@@ -6,7 +6,7 @@ import Timer from "./components/Timer.js";
 import "./TabTimer.css";
 import ButtonsForMain from "./ButtonsForMain.js";
 
-function TabTimer(props) {
+function TabTimer() {
   const { screensTimer, setScreensTimer } = useContext(Context);
 
   return (

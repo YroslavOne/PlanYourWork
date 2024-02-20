@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Picker from 'react-mobile-picker-scroll';
+import React from 'react';
+import Picker from 'react-mobile-picker';
 import { useState } from 'react';
 import './TimePicker.css';
 

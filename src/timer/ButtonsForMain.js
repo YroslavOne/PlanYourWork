@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { SCREENS_TIMER } from "../Consist.js";
 
 function ButtonsForMain(props) {
-  function clickTimer(screen, e) {
+  function shiftScreen(screen, e) {
     props.setScreensTimer(screen);
   }
 
@@ -11,7 +11,7 @@ function ButtonsForMain(props) {
     <div className="tab-button">
       <Clock
         value="1"
-        onClick={(e) => clickTimer(SCREENS_TIMER.TIMER, e)}
+        onClick={(e) => shiftScreen(SCREENS_TIMER.TIMER, e)}
         className={
           props.screensTimer === SCREENS_TIMER.TIMER
             ? "tab-button-turn"
@@ -21,7 +21,7 @@ function ButtonsForMain(props) {
 
       <Sliders2Vertical
         value="2"
-        onClick={(e) => clickTimer(SCREENS_TIMER.SETTINGS_TIMER, e)}
+        onClick={(e) => shiftScreen(SCREENS_TIMER.SETTINGS_TIMER, e)}
         className={
           props.screensTimer === SCREENS_TIMER.SETTINGS_TIMER
             ? "tab-button-turn"
