@@ -25,7 +25,9 @@ function Clock(props) {
     } else {
       props.setPause(!props.pause);
       const nextIndex = (currentIntervalIndex + 1) % props.intervals.length;
-      setCurrentIntervalIndex(nextIndex);
+      let chekNextIndex =
+        props.intervals[nextIndex] === undefined ? 0 : nextIndex;
+      setCurrentIntervalIndex(chekNextIndex);
 
       allSeconds = props.intervals[nextIndex].value * 60;
       setSecondsLeft(allSeconds);

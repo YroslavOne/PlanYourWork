@@ -1,5 +1,5 @@
 import React from 'react';
-import Picker from 'react-mobile-picker';
+import Picker from 'react-mobile-picker-scroll';
 import { useState } from 'react';
 import './TimePicker.css';
 
@@ -11,7 +11,9 @@ function TimerPickerDesktop(props) {
   for (let i = props.startSelection; i <= props.endSelection; i++) {
     selections.value.push(i);
   }
-  const [pickerValue, setPickerValue] = useState(15);
+  console.log(props.initialValue);
+  console.log(props.endSelection);
+  const [pickerValue, setPickerValue] = useState(props.initialValue);
 
   let valueGroups = {
     value: pickerValue,
@@ -33,7 +35,6 @@ function TimerPickerDesktop(props) {
       optionGroups={selections}
       valueGroups={valueGroups}
       onChange={handleChange}
-      color="blue"
     />
   );
 }
