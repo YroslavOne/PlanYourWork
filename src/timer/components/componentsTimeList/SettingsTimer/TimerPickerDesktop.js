@@ -11,8 +11,6 @@ function TimerPickerDesktop(props) {
   for (let i = props.startSelection; i <= props.endSelection; i++) {
     selections.value.push(i);
   }
-  console.log(props.initialValue);
-  console.log(props.endSelection);
   const [pickerValue, setPickerValue] = useState(props.initialValue);
 
   let valueGroups = {
