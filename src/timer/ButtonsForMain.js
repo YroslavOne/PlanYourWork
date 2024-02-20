@@ -1,5 +1,5 @@
 import { Clock, Sliders2Vertical } from "react-bootstrap-icons";
-import React, { useState } from "react";
+import React from "react";
 import { SCREENS_TIMER } from "../Consist.js";
 
 function ButtonsForMain(props) {

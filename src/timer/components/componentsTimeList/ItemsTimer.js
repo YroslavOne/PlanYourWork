@@ -7,7 +7,7 @@ import './ItemsTimer.css';
 function ItemsTimer() {
   const { settingsTimer } = useContext(Context);
 
-  const [secondsLeft, setSecondsLeft] = useState(5);
+  // const [secondsLeft, setSecondsLeft] = useState(5);
   const [pause, setPause] = useState(true);
   const [currentlyRunning, setCurrentlyRunning] = useState(0);
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { SCREENS, SCREENS_TIMER } from './Consist';
+import { SCREENS_TIMER } from './Consist';
 
 export const Context = React.createContext({
   settingsTimer: null,

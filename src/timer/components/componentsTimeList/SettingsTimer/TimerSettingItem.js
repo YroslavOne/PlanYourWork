@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import TimerPicker from './TimerPicker';
-import TimerPickerDesktop from './TimerPickerDesktop';
-import { CaretUp } from 'react-bootstrap-icons';
-import { CaretDown } from 'react-bootstrap-icons';
-import './TimerSettingItem.css';
+import { useState } from "react";
+import TimerPicker from "./TimerPicker";
+import TimerPickerDesktop from "./TimerPickerDesktop";
+import { CaretUp } from "react-bootstrap-icons";
+import { CaretDown } from "react-bootstrap-icons";
+import "./TimerSettingItem.css";
 
 function TimerSettingItem(props) {
   const [onDisplayTimePicker, setOnDisplayTimePicker] = useState(false);

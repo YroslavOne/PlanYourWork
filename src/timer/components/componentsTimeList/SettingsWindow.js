@@ -1,9 +1,7 @@
-import { SCREENS_TIMER, SCREENS_SETTINGS } from "../../../Consist";
+import { SCREENS_TIMER } from "../../../Consist";
 import { Context } from "../../../Context";
-import { useContext, useEffect, useRef, useState } from "react";
-// import ElementSettingsTimerList from './settingsTimerList/ElementSettingsTimerList';
+import { useContext, useState } from "react";
 import TimerSettingsList from "./SettingsTimer/TimerSettingsList";
-import { v4 as uuidv4 } from "uuid";
 import "./SettingsWindow.css";
 
 import EditorNameTimer from "./SettingsTimer/EditorNameTimer";
