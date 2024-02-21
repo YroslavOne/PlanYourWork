@@ -8,16 +8,16 @@ function TimerSettingsList(props) {
   return (
     <ul className="settings-timer-element">
       {settingsTimer.map((objSettingsTimer) => {
-        // const { name , value, unit,} = settingsTimer;
+        const { name , value, unit, startSelection, endSelection, key} = objSettingsTimer;
         return (
           <ElementSettingsTimerList
             settingsTimer={settingsTimer}
-            name={objSettingsTimer.name}
-            unit={objSettingsTimer.unit}
-            value={objSettingsTimer.value}
-            startSelection={objSettingsTimer.startSelection}
-            endSelection={objSettingsTimer.endSelection}
-            key={objSettingsTimer.key}
+            name={name}
+            unit={unit}
+            value={value}
+            startSelection={startSelection}
+            endSelection={endSelection}
+            key={key}
           />
         );
       })}
