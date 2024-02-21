@@ -47,7 +47,7 @@ function Clock(props) {
       alert("Next?");
     }
   }, [secondsLeft, currentIntervalIndex, props.intervals]);
-
+//chek
   return (
     <div className="clock">
       <div
