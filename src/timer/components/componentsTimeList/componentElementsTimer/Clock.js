@@ -39,18 +39,21 @@ function Clock(props) {
   // requestAnimationFrame
   // transform для css -
   // gudini посмотреть это)
+  //
 
   const smoothIncrease = function () {
     if (percentForCss < percent) {
       let value =
-        percentForCss + (100 / (allSeconds * 100)) * 1.666666666666667;
+        percentForCss + (100 / (allSeconds * 1000)) * 16.66666666666667;
       setPercentForCss(value);
     } else if (percent === 0 && percentForCss !== 0) {
-      let value = percentForCss - (100 / 100) * 1.666666666666667;
+      let value = percentForCss - (100 / 1000) * 16.66666666666667;
       setPercentForCss(value);
     }
   };
   window.requestAnimationFrame(smoothIncrease);
+
+  // вынести отдельно
 
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);

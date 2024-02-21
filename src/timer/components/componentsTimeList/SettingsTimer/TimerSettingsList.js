@@ -1,15 +1,17 @@
-import ElementSettingsTimerList from "./TimerSettingItem";
-import "./TimerSettingsList.css";
+import ElementSettingsTimerList from './TimerSettingItem';
+import './TimerSettingsList.css';
 
 function TimerSettingsList(props) {
+  //почитать еще раз про деструктуризация
   const { settingsTimer } = props;
 
   return (
     <ul className="settings-timer-element">
       {settingsTimer.map((objSettingsTimer) => {
+        // const { name , value, unit,} = settingsTimer;
         return (
           <ElementSettingsTimerList
-            settingsTimer={props.settingsTimer}
+            settingsTimer={settingsTimer}
             name={objSettingsTimer.name}
             unit={objSettingsTimer.unit}
             value={objSettingsTimer.value}

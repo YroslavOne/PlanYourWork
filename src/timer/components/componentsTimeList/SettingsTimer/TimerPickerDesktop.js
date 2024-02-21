@@ -11,18 +11,15 @@ function TimerPickerDesktop(props) {
   for (let i = props.startSelection; i <= props.endSelection; i++) {
     selections.value.push(i);
   }
-  const [pickerValue, setPickerValue] = useState(props.initialValue);
 
-  let valueGroups = {
-    value: pickerValue,
+  const valueGroups = {
+    value: props.valueSettings,
   };
-
-  function handleChange(name, value) {
-    setPickerValue(value);
-    props.setValueSettings(pickerValue);
+  function handleChange(_, value) {
+    props.setValueSettings(value);
     props.settingsTimer.map((objSettingsTimer) => {
       if (objSettingsTimer.name === props.name) {
-        objSettingsTimer.value = pickerValue;
+        objSettingsTimer.value = value;
       }
     });
   }
