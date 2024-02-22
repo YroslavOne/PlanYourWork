@@ -22,9 +22,6 @@
  }
 
  .timer {
-
- 	/* position: absolute; */
-
  	color: white;
  }
 
@@ -43,22 +40,26 @@
  	mask: radial-gradient(closest-side, rgba(0, 0, 0, 0) calc(99% - var(--pie-b)), rgb(0, 0, 0) calc(100% - var(--pie-b)));
  }
 
+
+
  .clock-timer {
- 	z-index: -100;
- 	position: absolute;
- 	width: 100%;
- 	aspect-ratio: 1;
- 	border-radius: 50%;
- 	transition: --pie-p 1ms linear;
- 	background: conic-gradient(var(--gradient-1) var(--pie-p, 0%), #0000 0);
- 	/* background-color: var(--gradient); */
- 	--gradient: radial-gradient(closest-side, var(--gradient-one-1) 80%, var(--gradient-one-2));
- 	--gradient-1: #342E5E;
- 	--gradient-2: #302F4F;
- 	--pie-b: 3em;
- 	mask: radial-gradient(closest-side, #0000 calc(99% - var(--pie-b)), white calc(100% - var(--pie-b)));
- 	animation: progress 1s linear infinite
- }
+    z-index: -100;
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: conic-gradient(var(--gradient-1) var(--percentage, 0%), #0000 0);
+    --gradient: radial-gradient(closest-side, var(--gradient-one-1) 80%, var(--gradient-one-2));
+    --gradient-1: #342E5E;
+    --gradient-2: #302F4F;
+    --pie-b: 3em;
+    mask: radial-gradient(closest-side, #0000 calc(99% - var(--pie-b)), white calc(100% - var(--pie-b)));
+}
+@keyframes timer {
+	to {
+	  --percentage: var(--pie-p);
+	}
+  }
 
  .timer-background-two {
  	z-index: -99;
@@ -71,6 +72,7 @@
  	--gradient-two-2: #270ae4;
  	--pie-b: 3em;
  	mask: radial-gradient(closest-side, #0000 calc(99% - var(--pie-b)), rgb(230, 8, 8) calc(100% - var(--pie-b)), #0000 calc(105% - var(--pie-b)), #0000 100%);
+ 	animation: progress 1s linear forwards
  }
 
  .timer-slider {
@@ -112,16 +114,6 @@
 	position: relative;
 	
   }
-  
-  /* li:not(:first-child)::before {
-	content: "";
-	position: absolute; 
-	left: 0;
-	top: 50%;
-	width: 10px; 
-	height: 1px; 
-	background-color: #000; 
-  } */
 
   .doth-in-progress{
 	width: 10px;
