@@ -51,7 +51,7 @@ function Clock(props) {
     <div className="clock">
       <div
         className="clock-timer"
-        style={{ "--pie-p": `${percentForCss}%` }}
+        style={{ "--pie-p": `${percent}%`, "--pie-k": `${percent-1.6666666666666667}%` }}
       ></div>
       <h2 className="timer">{FormatTime(secondsLeft)}</h2>
       <div className="timer-background-one"></div>
