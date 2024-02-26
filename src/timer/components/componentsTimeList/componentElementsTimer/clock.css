@@ -40,6 +40,11 @@
  	mask: radial-gradient(closest-side, rgba(0, 0, 0, 0) calc(99% - var(--pie-b)), rgb(0, 0, 0) calc(100% - var(--pie-b)));
  }
 
+ @property --percentage {
+	initial-value: 0%;
+	inherits: false;
+	syntax: "<percentage>";
+  }
 
 
  .clock-timer {
@@ -48,18 +53,25 @@
     width: 100%;
     aspect-ratio: 1;
     border-radius: 50%;
-    background: conic-gradient(var(--gradient-1) var(--percentage, 0%), #0000 0);
+    background: conic-gradient(var(--gradient-1) var(--percentage), #0000 0);
     --gradient: radial-gradient(closest-side, var(--gradient-one-1) 80%, var(--gradient-one-2));
     --gradient-1: #342E5E;
     --gradient-2: #302F4F;
     --pie-b: 3em;
     mask: radial-gradient(closest-side, #0000 calc(99% - var(--pie-b)), white calc(100% - var(--pie-b)));
+	animation: timer 1s linear forwards;
+
+	
 }
+
 @keyframes timer {
-	to {
-	  --percentage: var(--pie-p);
-	}
-  }
+    from {
+        --percentage: var(--pie-k);
+    }
+    to {
+        --percentage: var(--pie-p);
+    }
+}
 
  .timer-background-two {
  	z-index: -99;
