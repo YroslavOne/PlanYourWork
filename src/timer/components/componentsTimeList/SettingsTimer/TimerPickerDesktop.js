@@ -4,25 +4,15 @@ import { useState } from 'react';
 import './TimePicker.css';
 
 function TimerPickerDesktop(props) {
-  let selections = {
-    value: [],
+
+  const valueGroups = {
+    value: props.valueSettings,
   };
-
-  for (let i = props.startSelection; i <= props.endSelection; i++) {
-    selections.value.push(i);
-  }
-  const [pickerValue, setPickerValue] = useState(15);
-
-  let valueGroups = {
-    value: pickerValue,
-  };
-
-  function handleChange(name, value) {
-    setPickerValue(value);
-    props.setValueSettings(pickerValue);
+  function handleChange(_, value) {
+    props.setValueSettings(value);
     props.settingsTimer.map((objSettingsTimer) => {
       if (objSettingsTimer.name === props.name) {
-        objSettingsTimer.value = pickerValue;
+        objSettingsTimer.value = value;
       }
     });
   }
@@ -30,10 +20,9 @@ function TimerPickerDesktop(props) {
   return (
     <Picker
       className="picker"
-      optionGroups={selections}
+      optionGroups={props.selections}
       valueGroups={valueGroups}
       onChange={handleChange}
-      color="blue"
     />
   );
 }

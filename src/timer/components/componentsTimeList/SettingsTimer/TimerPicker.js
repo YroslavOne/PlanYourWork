@@ -3,16 +3,9 @@ import { useState } from 'react';
 import './TimePicker.css';
 
 function TimerPicker(props) {
-  let selections = {
-    value: [],
-  };
-
-  for (let i = props.startSelection; i <= props.endSelection; i++) {
-    selections.value.push(i);
-  }
 
   const [pickerValue, setPickerValue] = useState({
-    value: props.initialValue,
+    value: props.valueSettings,
   });
   props.setValueSettings(pickerValue.value);
   props.settingsTimer.map((objSettingsTimer) => {
@@ -29,14 +22,14 @@ function TimerPicker(props) {
       value={pickerValue}
       onChange={setPickerValue}
     >
-      {Object.keys(selections).map((name) => (
+      {Object.keys(props.selections).map((name) => (
         <Picker.Column
           className="picker-colum"
           style={null}
           key={name}
           name={name}
         >
-          {selections[name].map((option) => (
+          {props.selections[name].map((option) => (
             <Picker.Item
               className="picker-colum-item"
               style={null}

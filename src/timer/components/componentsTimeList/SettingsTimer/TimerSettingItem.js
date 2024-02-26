@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import TimerPicker from "./TimerPicker";
 import TimerPickerDesktop from "./TimerPickerDesktop";
 import { CaretUp } from "react-bootstrap-icons";
@@ -8,15 +8,25 @@ import "./TimerSettingItem.css";
 function TimerSettingItem(props) {
   const [onDisplayTimePicker, setOnDisplayTimePicker] = useState(false);
   const [valueSettings, setValueSettings] = useState(props.value);
-  function clickDisplay() {
-    setOnDisplayTimePicker(!onDisplayTimePicker);
+  // function clickDisplay() {
+  //   setOnDisplayTimePicker(!onDisplayTimePicker);
+  // }
+  const clickDisplay = useCallback(
+    () => setOnDisplayTimePicker(!onDisplayTimePicker),
+    [onDisplayTimePicker]
+  );
+  let selections = {
+    value: [],
+  };
+  for (let i = props.startSelection; i <= props.endSelection; i++) {
+    selections.value.push(i);
   }
 
   return (
     <li
       key={props.key}
       className="element-settings-timer-list"
-      onClick={(e) => clickDisplay()}
+      onClick={clickDisplay}
     >
       <div className="element-settings-timer-list-div">
         <h4 className="element-settings-timer-list-title">{props.name}</h4>
@@ -34,23 +44,21 @@ function TimerSettingItem(props) {
         </div>
       </div>
 
-      {true === onDisplayTimePicker && window.innerWidth > 1366 && (
+      {onDisplayTimePicker && window.innerWidth > 1366 && (
         <TimerPickerDesktop
-          initialValue={valueSettings}
           name={props.name}
+          valueSettings={valueSettings}
           setValueSettings={setValueSettings}
-          startSelection={props.startSelection}
-          endSelection={props.endSelection}
+          selections={selections}
           settingsTimer={props.settingsTimer}
         />
       )}
-      {true === onDisplayTimePicker && window.innerWidth < 1366 && (
+      {onDisplayTimePicker && window.innerWidth < 1366 && (
         <TimerPicker
-          initialValue={valueSettings}
+          valueSettings={valueSettings}
           name={props.name}
           setValueSettings={setValueSettings}
-          startSelection={props.startSelection}
-          endSelection={props.endSelection}
+          selections={selections}
           settingsTimer={props.settingsTimer}
         />
       )}

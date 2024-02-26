@@ -1,6 +1,6 @@
-import { Pencil } from "react-bootstrap-icons";
-import React, { useEffect, useRef, useState } from "react";
-import "./EditorNameTimer.css";
+import { Pencil } from 'react-bootstrap-icons';
+import React, { useEffect, useRef, useState } from 'react';
+import './EditorNameTimer.css';
 
 function EditorNameTimer(props) {
   const editRef = useRef();
@@ -16,18 +16,19 @@ function EditorNameTimer(props) {
       }
     }
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
+  // закинуть в ретерн в тернарный оператор
   function enterName() {
     if (edit === false) {
       return (
         <div className="settings-editor-name-text">
-          <h2 className="settings-editor-name-text-title">{props.valueName}</h2>{" "}
+          <h2 className="settings-editor-name-text-title">{props.valueName}</h2>{' '}
           <Pencil className="settings-editor-name-text-pencil" />
         </div>
       );
